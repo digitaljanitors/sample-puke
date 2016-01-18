@@ -1,0 +1,72 @@
+---
+- sample-api-1:
+  type:
+    prod: m3.medium
+    staging: m3.medium
+  ami: ami-123123
+  family: linux
+  source_dest_check: true
+  ebs_optimized: false
+  eip: false
+  ip: 10.OCTET.41.21
+  az: us-east-1c
+  environment:
+    - staging
+  security_groups:
+    - sample-api-server
+    - jumpbox-client
+    - chef-client
+  chef_recipes:
+    - srv_sample_api
+- sample-api-2:
+  type:
+    prod: m3.medium
+    staging: m3.medium
+  family: linux
+  source_dest_check: true
+  ip: 10.OCTET.42.21
+  az: us-east-1d
+  security_groups:
+    - sample-api-server
+  chef_recipes:
+    - srv_sample_api
+- sample-api-3:
+  type:
+    prod: m3.medium
+    staging: m3.medium
+  environment:
+    - prod
+    - staging
+  family: linux
+  ip: 10.OCTET.43.21
+  az: us-east-1e
+  ebs:
+    sdf:
+      type: magnetic
+      size: 20
+      encrypted: true
+    sdg:
+      type: gp
+      size: 100
+    sdh:
+      type: piops
+      size: 10
+      iops: 100
+    sdi:
+      type: piops
+      size: 10
+  security_groups:
+    - sample-api-server
+  chef_recipes:
+    - srv_sample_api
+- sample-api-4:
+  type:
+    prod: m3.medium
+    staging: m3.medium
+  family: linux
+  ip: 10.OCTET.41.22
+  az: us-east-1c
+  security_groups:
+    - sample-api-server
+  chef_recipes:
+    - srv_sample_api

@@ -1,0 +1,31 @@
+---
+int:
+  vpc_id: vpc-bc862590
+  region_name: us-east-1
+  zone: Z2YU2BL04NWSK1
+  octet: '200'
+  domain: example.org
+  linux_cloud_config_template: cloud-config.erb
+  linux_paravirtual_base_image: ami-280d0740
+  linux_hvm_base_image: ami-260d074e
+  windows_cloud_config_template: cloud-config.erb
+  windows_paravirtual_base_image: ami-d770sb13
+  windows_hvm_base_image: ami-d7759fbc
+  chef_host: 'https://chef.int.example.org:443'
+prod:
+  vpc_id: vpc-e6d65383
+  region_name: us-east-1
+  zone: Z1K1S1SKCF92F9
+  octet: '201'
+  domain: prod.example.org
+  linux_cloud_config_template: cloud-config.erb
+  linux_paravirtual_base_image: ami-280d0740
+  linux_hvm_base_image: ami-260d074e
+  windows_cloud_config_template: cloud-config.erb
+  windows_paravirtual_base_image: BUILD_ME
+  windows_hvm_base_image: ami-d7759fbc
+  chef_host: 'https://chef.int.example.org:443'
+  ssm_documents:
+    - windows-domainjoin
+  products:
+    - sample-api
