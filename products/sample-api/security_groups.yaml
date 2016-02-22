@@ -1,5 +1,6 @@
 ---
 - sample-api-load-balancer:
+  description: 'this is a description'
   ingress:
     -
       source: 0.0.0.0/0
@@ -15,5 +16,21 @@
     -
       source: sample-api-load-balancer
       ports: 8080
+      protocol: tcp
+    - 
+      source: 0.0.0.0/0
+      ports: 8080
+      protocol: tcp
+    -
+      source: 10.200.0.0/16
+      ports: -1
+      protocol: icmp
+    -
+      source: 0.0.0.0/0
+      ports: 8080..8081
+      protocol: tcp
+    -
+      source: sample-api-load-balancer
+      ports: 443
       protocol: tcp
   egress:
