@@ -9,7 +9,9 @@
   ebs_optimized: false
   eip: false
   ip: 10.OCTET.41.21
-  az: us-east-1c
+  az: 
+    prod: us-west-2a
+    staging: us-east-1c
   environment:
     - staging
   security_groups:
