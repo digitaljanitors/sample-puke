@@ -9,6 +9,8 @@
   ebs_optimized: false
   eip: false
   ip: 10.OCTET.41.21
+  tags:
+    - foo=bar
   az: 
     prod: us-west-2a
     staging: us-east-1c
